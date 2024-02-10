@@ -1,0 +1,181 @@
+.App {
+  background-color: #2d2d2d;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+}
+
+:root {
+    --index: calc(1vw + 1vh);
+}
+
+.text-title {
+    font-size: calc(10px + 2vmin);
+}
+
+.NavBar {
+    /* width: 100vw - 20px; */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    background-color:#3c3c3c;
+}
+
+.NavBar-left {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.NavBar-right {
+    margin-right: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+h1 {
+    margin: 0;
+}
+
+.NavLink-Active {
+    color: white;
+}
+
+.NavLink {
+    color: white;
+    text-decoration: none
+}
+
+.rick-img {
+    width: 75px;
+}
+
+.nav-list__link {
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.nav-list__link--active {
+    position: relative;
+}
+
+.nav-list__link--active::before {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    top: 100%;
+
+    border-radius: 1px;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #39b803;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-image: url("./assets/img/back_4.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.main-img {
+    width: 100%;
+    z-index: 0;
+}
+
+.logo-div {
+    max-width: 350px;
+    margin: 20vh auto;
+    padding: 30px;
+    text-align: center;
+    z-index: 1;
+    background-color: #000000a7;
+}
+
+.logo-img {
+    width: 40vh;
+    max-width: 300px;
+    margin: 0 auto 0;
+}
+
+.gridPage-div {
+    margin: 20px 30px;
+    text-align: center;
+}
+
+.grid-div {
+    max-width: 1000px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 320px 320px 320px;
+    gap: 20px;
+}
+
+.element-grid-div {
+    max-width: 320px;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: calc(var(--index) * .75);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.147);
+}
+
+.characters-img {
+    margin: 10px;
+    max-width: 280px;
+    border-radius: 25px;
+}
+
+.notFound-div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.notFound-title {
+    margin-top: 10vh;
+    padding: 0;
+    font-size: 300px;
+}
+
+.notFound-description {
+    font-size: 35px;
+}
+
+.cardPage {
+    margin: 30px auto;
+}
+
+.card {
+    width: 600px;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.147);
+    margin: 10vh auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-right {
+    margin: 20px;
+}
+
+.card-describe {
+    font-weight: 300;
+}
