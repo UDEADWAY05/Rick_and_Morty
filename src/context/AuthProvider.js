@@ -9,8 +9,6 @@ export function useAuth() {
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null)
 
-    console.log(JSON.parse(localStorage.getItem("user")))
-
     const signIn = (newUser, callback) => {
         setUser(newUser)
         localStorage.setItem("user", JSON.stringify(newUser))

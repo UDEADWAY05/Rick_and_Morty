@@ -1,26 +1,33 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom"
-import Api from "../../api/episode.json"
+import config from "../../config.json";
+import { useFetch } from "../../hooks/useFetch";
 
 const EpisodePage = () => {
-    const params = useParams()
-    let character = Api.filter((el) => el.id == params.id)
-
-    if (character.length < 1) {
+    const { id } = useParams()
+    const {
+        data,
+        isLoading,
+        error,
+    } = useFetch(config.episodes + id)
+    
+    if (error && error.response.status === 404) {
         return <Navigate to="*" />
     }
 
-    character = character[0]
+    if (isLoading) {
+        return "loading..."
+    }
+
     return (
         <div className="cardPage">
-            <h1></h1>
             <div className="card">
                 <div className="card-right">
-                    <h1>{ character.name} </h1>
-                    <p className="card-describe">{ "Name: " + character.name }</p>
-                    <p className="card-describe">{ "Episode: " + character.episode }</p>
-                    <p className="card-describe">{"Date: " + character.air_date}</p>
-                    <p className="card-describe">{"Id: " + character.id}</p>
+                    <h1>{ data.name} </h1>
+                    <p className="card-describe">{ "Name: " + data.name }</p>
+                    <p className="card-describe">{ "Episode: " + data.episode }</p>
+                    <p className="card-describe">{"Date: " + data.air_date}</p>
+                    <p className="card-describe">{"Id: " + data.id}</p>
                 </div>
             </div>
         </div>

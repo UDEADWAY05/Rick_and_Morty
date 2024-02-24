@@ -53,7 +53,7 @@ h1, h2, h3 {
     color: white;
 }
 
-.NavLink {
+.link {
     color: white;
     text-decoration: none
 }
@@ -174,7 +174,7 @@ h1, h2, h3 {
 }
 
 .characters-img {
-    margin: 10px;
+    margin: 10px 10px 20px;
     max-width: 280px;
     border-radius: 25px;
 }
@@ -200,11 +200,11 @@ h1, h2, h3 {
 }
 
 .card {
-    width: 600px;
+    width: 800px;
     padding: 10px;
-    border-radius: 50px;
+    border-radius: 30px;
     background-color: rgba(0, 0, 0, 0.147);
-    margin: 10vh auto;
+    margin: 10vh auto 0;
     display: flex;
     flex-direction: row;
 }
@@ -215,6 +215,36 @@ h1, h2, h3 {
 
 .card-describe {
     font-weight: 300;
+}
+
+.card-second {
+    max-width: 820px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto 0;
+    padding: 25px;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.147);
+    border-radius: 25px;
+}
+
+.card-second-grid {
+    max-width: 720px;
+    width: 100%;
+    display: grid;
+    padding: 25px;
+    grid-template-columns: 226px 226px 226px;
+    gap: 20px;
+
+}
+
+.card-mini {
+    width: 176px;
+    height: 60px;
+    padding: 25px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.147);
 }
 
 .formDiv {
@@ -292,4 +322,22 @@ input:hover {
 .radios-div {
     display: flex;
     flex-direction: row;
+}
+
+.error-div {
+    display: flex;
+    margin: auto;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.error-img {
+    width: 200px;
+}
+
+.error-description {
+    color: #ffffff61;
+    max-width: 35vw;
 }

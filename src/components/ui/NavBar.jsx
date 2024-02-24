@@ -24,7 +24,7 @@ const NavBar = () => {
     return (<div className="NavBar">
         <div className="NavBar-left">
             <img alt="Сдесь должен быть Рик" src={rick} className="rick-img" />
-            <NavLink to="/" className="NavLink" ><h1>Rick and Morty</h1></NavLink>
+            <NavLink to="/" className="link" ><h1>Rick and Morty</h1></NavLink>
         </div>
         <div className="NavBar-right">
             <NavLink to="/episodes" className={({ isActive }) => (isActive ? activeLink : normalLink)}>Эпизоды</NavLink>

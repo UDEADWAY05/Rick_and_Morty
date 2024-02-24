@@ -1,28 +1,33 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom"
-import Api from "../../api/location.json"
+import config from "../../config.json";
+import { useFetch } from "../../hooks/useFetch";
 
 const LocationPage = () => {
-    const params = useParams()
-    let character = Api.filter((el) => el.id == params.id)
-
-    if (character.length < 1) {
+    const { id } = useParams()
+    const {
+        data,
+        isLoading,
+        error,
+    } = useFetch(config.locations + id)
+    
+    if (error && error.response.status === 404) {
         return <Navigate to="*" />
     }
 
-    console.log(character[0])
-    character = character[0]
+    if (isLoading) {
+        return "loading..."
+    }
 
     return (
         <div className="cardPage">
-            <h1></h1>
             <div className="card">
                 <div className="card-right">
-                    <h1>{ character.name} </h1>
-                    <p className="card-describe">{"Name: " + character.name}</p>
-                    <p className="card-describe">{"Dismension: " + character.dimension}</p>
-                    <p className="card-describe">{ "Type: " + character.type}</p>
-                    <p className="card-describe">{ "Id: " + character.id}</p>
+                    <h1>{ data.name} </h1>
+                    <p className="card-describe">{"Name: " + data.name}</p>
+                    <p className="card-describe">{"Dismension: " + data.dimension}</p>
+                    <p className="card-describe">{ "Type: " + data.type}</p>
+                    <p className="card-describe">{ "Id: " + data.id}</p>
                 </div>
             </div>
         </div>
