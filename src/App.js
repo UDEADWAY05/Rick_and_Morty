@@ -3,12 +3,13 @@ import { Routes, Route } from "react-router-dom"
 import { RouteWithErrorBoundary } from "./components/common/RouteWithErrorBoundary";
 import MainPage from "./components/page/main"
 import NavBar from './components/ui/NavBar';
-import './App.css';
+import './App.scss';
 import EpisodesPage from "./components/page/episodes";
 import CharactersPage from "./components/page/characters";
 import LocationsPage from "./components/page/locations";
 import { AuthProvider } from "./context/AuthProvider";
 import { PrivateRoute } from "./components/PrivateRoute";
+import { Loader } from "./components/common/loader";
 
 const EpisodePage = lazy(() => import("./components/page/episode"))
 const CharacterPage = lazy(() => import("./components/page/character"))
@@ -32,7 +33,7 @@ function App() {
                         } />
                         <Route path=":id" element={<RouteWithErrorBoundary>
                                 <PrivateRoute>
-                                    <Suspense fallback={"Loading..."}>
+                                    <Suspense fallback={<Loader />}>
                                         <EpisodePage />
                                     </Suspense>
                                 </PrivateRoute>
@@ -48,7 +49,7 @@ function App() {
                         } />
                         <Route path=":id" element={<RouteWithErrorBoundary>
                                 <PrivateRoute>
-                                    <Suspense fallback={"Loading..."}>
+                                    <Suspense fallback={<Loader />}>
                                         <CharacterPage />
                                     </Suspense>
                                 </PrivateRoute>
@@ -64,7 +65,7 @@ function App() {
                         } />
                         <Route path=":id" element={<RouteWithErrorBoundary>
                                 <PrivateRoute>
-                                    <Suspense fallback={"Loading..."}>
+                                    <Suspense fallback={<Loader />}>
                                         <LocationPage />
                                     </Suspense>
                                 </PrivateRoute>
@@ -72,16 +73,17 @@ function App() {
                         } />
                     </Route>
                     <Route path="*" element={
-                        <Suspense fallback={"Loading..."}>
+                        <Suspense fallback={<Loader />}>
                             <NotFoundPage />
                         </Suspense>
                     } />
                     <Route path="/login" element={
-                        <Suspense fallback={"Loading..."}>
+                        <Suspense fallback={<Loader />}>
                             <Login/>
                         </Suspense>
                     } />
                 </Routes>
+ 
         </AuthProvider>
     </div>
   );

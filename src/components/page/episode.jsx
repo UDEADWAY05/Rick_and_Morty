@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Navigate } from "react-router-dom"
 import config from "../../config.json";
 import { useFetch } from "../../hooks/useFetch";
+import { Loader } from "../common/loader";
 
 const EpisodePage = () => {
     const { id } = useParams()
@@ -16,7 +17,7 @@ const EpisodePage = () => {
     }
 
     if (isLoading) {
-        return "loading..."
+        return <Loader />
     }
 
     return (

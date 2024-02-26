@@ -38,13 +38,13 @@ const CharactersPage = () => {
             {element && element.map((el, index) => {
                 if (element.length === index + 1) {
                     return <Link to={String(el.id)} key={el.id} ref={lastNodeRef} className="element-grid-div">
-                        <img className="characters-img" src={el.image}></img>
+                        <img alt={el.name} className="characters-img" src={el.image}></img>
                         <p>{el.name}</p>
                         <p>{el.species}</p>
                     </Link>
                 }
                 return <Link to={String(el.id)} key={el.id} className="element-grid-div">
-                    <img className="characters-img" src={el.image}></img>
+                    <img alt={el.name} className="characters-img" src={el.image}></img>
                     <h3>{el.name}</h3>
                     <p>{el.species}</p>
                 </Link>

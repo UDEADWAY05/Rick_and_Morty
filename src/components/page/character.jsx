@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Navigate, Link } from "react-router-dom"
 import config from "../../config.json";
 import { useFetch } from "../../hooks/useFetch";
+import { Loader } from "../common/loader";
 
 
 const CharacterPage = () => {
@@ -17,14 +18,14 @@ const CharacterPage = () => {
     }
 
     if (isLoading) {
-        return "loading..."
+        return <Loader />
     }
 
     return (
         <div className="cardPage">
             {error && <div key="error">error</div>}
             <div className="card" key="card">
-                <img src={data.image} className="characters-img" />
+                <img alt={data.name} src={data.image} className="characters-img" />
                 <div className="card-right">
                     <h1 key="title">{ data.name} </h1>
                     <p key="name" className="card-describe">{ "Name: " + data.name }</p>
