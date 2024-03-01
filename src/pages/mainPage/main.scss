@@ -1,0 +1,64 @@
+@import "../../variables";
+
+.main {
+    &-about {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-image: url("../../assets/img/back_4.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &-card {
+        max-width: 1200px;
+        width: calc(300px + 60vw);
+        display: flex;
+        align-items: center;
+        margin: 60px auto;
+        padding: 30px;
+        flex-direction: column;
+        background-color: #00000044;
+        box-shadow: 10px 10px 0px #447b2c;
+
+        @include breakpoint(xxl) {
+            width: calc(200px + 60vw);
+            padding: 20px;
+        }
+
+        @include breakpoint(lg) {
+            width: calc(100px + 50vw);
+            padding: 15px;
+        }
+
+        &-subtitle {
+            margin: 20px;
+            text-align: center;
+            font-size: calc(10px + 1vmin);
+        }
+    }
+
+    &-img {
+        width: 100%;
+        z-index: 2;
+    }
+}
+
+.logo {
+    &-div {
+        max-width: 350px;
+        width: calc(200px + 10vw);
+        margin: 20vh auto;
+        padding: 30px;
+        text-align: center;
+        align-items: center;
+        z-index: 1;
+        background-color: #000000a7;
+    }
+
+    &-img {
+        max-width: 300px;
+        width: calc(120px + 20vw);
+    }
+}

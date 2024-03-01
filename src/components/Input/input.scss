@@ -1,0 +1,26 @@
+.input {
+    width: 260px;
+    padding: 10px;
+    border-color: #68686874;
+    border-radius: 5px;
+    padding-left: 10px;
+    :focus {
+        border-color: #636363;
+    }
+    :hover {
+        border-color: #636363;
+    }
+    &-div {
+        margin-top: 5px;
+    }
+    &-label {
+        max-height: 25px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.required {
+    color: #c70404d1;
+}
