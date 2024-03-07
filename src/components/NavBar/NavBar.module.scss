@@ -1,0 +1,86 @@
+.NavBar {
+    @apply flex max-w-full py-[10px] justify-between flex-row items-center bg-[#3c3c3c];
+    &-left {
+        @apply items-center flex flex-row ml-5;
+    }
+
+    &-right {
+        @apply mr-6 items-center flex-row;
+        &-big {
+            @apply items-center hidden dl:flex;
+        }
+
+        &-small {
+            @apply flex dl:hidden;
+        }
+    }
+
+    &-icon {
+        @apply m-2 invert w-5 cursor-pointer;
+    }
+}
+
+.menu {
+    &-img {
+        @apply w-7 h-7 cursor-pointer;
+    }
+
+    &-selection {
+        &-hidden {
+            @apply hidden;
+        }
+
+        &-flex {
+            @apply min-w-[140px] absolute flex my-0.5 mx-1 p-5 flex-col 
+            top-20 right-0 bg-[#1a1a1a] rounded-xl z-20;
+        }
+
+        &-list {
+            @apply flex flex-col items-center p-2;
+        }
+
+        &-link {
+            @apply flex justify-center m-[10px] text-white no-underline font-normal text-lg;
+        }
+    }
+}
+
+.user-title {
+    text-shadow: #eeff00 0px 0 7px;
+    -webkit-text-stroke: 0.9px black;
+    @apply my-auto font-extrabold text-cyan-400 text-2xl;
+
+
+    &-link {
+        text-shadow: #eeff00 0px 0 7px;
+        -webkit-text-stroke: 0.9px black;
+        @apply font-extrabold text-cyan-400 text-2xl;
+    }
+}
+
+.link {
+    @apply text-white no-underline text-2xl font-bold sm:text-3xl;
+}
+
+.nav-list {
+    &-login {
+        @apply px-[10px] flex flex-row;
+    }
+
+    &-link {
+        @apply flex justify-center m-[10px] text-white no-underline font-medium text-xl ;
+    }
+
+    &-link--active {
+        @apply flex justify-center m-[10px] text-white font-medium text-xl relative;
+    }
+
+    &-link--active::before {
+        content: "";
+        @apply absolute left-0 top-full block h-0.5 w-full rounded-sm bg-[#39b803];
+    }
+}
+
+.rick-img {
+    @apply max-w-[60px] sm:max-w-[75px];
+}

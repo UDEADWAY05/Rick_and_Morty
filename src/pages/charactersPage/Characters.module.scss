@@ -1,0 +1,33 @@
+.title {
+    @apply font-medium ;
+}
+
+.gridPage-div {
+    @apply my-[20px] mx-[30px] text-center;
+}
+
+.grid-div {
+    @apply max-w-[1000px] my-[30px] mx-auto grid justify-center 
+    grid-cols-1 gap-[20px] sm:grid-cols-2 md:grid-cols-3;
+}
+
+.characters-grid-div {
+    @apply no-underline flex flex-col items-center text-white m-0 py-[20px]
+    px-[25px] rounded-2xl bg-[#00000025] text-center text-base;
+}
+
+.characters {
+    &-img {
+        @apply mt-[5px] w-full mb-[20px] sm:max-w-[280px] rounded-2xl;
+    }
+
+    &-about {
+        &-title {
+            @apply my-[20px] text-xl font-bold;
+
+        }
+        &-subtitle {
+            @apply text-sm text-[#565656];
+        }
+    } 
+}

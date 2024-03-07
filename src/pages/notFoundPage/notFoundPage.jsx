@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
-import "./notFound.scss"
+import styles from "./NotFound.module.scss"
 
 export const NotFoundPage = () => {
     const navigate = useNavigate()
@@ -18,8 +18,8 @@ export const NotFoundPage = () => {
         }
     }, [])
 
-    return (<div className="notFound-div">
-        <h1 className="notFound-title">404</h1>
-        <p className="notFound-description">Страница не найдена. Вы будете перенаправлены через {number}...</p>
+    return (<div className={styles["notFound-div"]}>
+        <p className={styles["notFound-title"]}>404</p>
+        <p className={styles["notFound-description"]}>Страница не найдена. Вы будете перенаправлены через {number}...</p>
     </div>);
 };

@@ -1,0 +1,19 @@
+.cardPage {
+    @apply flex my-auto mx-auto max-w-[560px] items-center;
+}
+
+.card {
+    @apply flex flex-row w-full py-[30px] px-[40px] mx-[30px] rounded-xl bg-[#00000025] sm:w-[420px];
+
+    &-about {
+        @apply flex flex-col;
+    }
+
+    &-title {
+        @apply my-[10px] font-bold text-3xl;
+    }
+
+    &-describe {        
+        @apply font-normal text-base text-[#c3c3c3c7];
+    }
+}

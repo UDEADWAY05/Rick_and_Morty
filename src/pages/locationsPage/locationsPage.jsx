@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSearch } from "../../hooks/useSearch";
 import config from "../../config.json";
+import styles from "./Locations.module.scss"
 
 export const LocationsPage = () => {
     const [page, setPage] = useState(1)
@@ -22,6 +23,7 @@ export const LocationsPage = () => {
 
         observer.current = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting && hasMore) {
+                console.log("Aaaa", page, loading)
                 setPage(prevState => prevState + 1)
             }
         })
@@ -32,18 +34,18 @@ export const LocationsPage = () => {
 
     }, [loading, hasMore])
 
-    return (<div className="gridPage-div">
-        <h1 className="title">Локации</h1>
-        <div className="grid-div">
+    return (<div className={styles["gridPage-div"]}>
+        <h1 className={styles["title"]}>Локации</h1>
+        <div className={styles["grid-div"]}>
             {element && element.map((el, index) => {
                 if (element.length === index + 1) {
-                    return <Link to={String(el.id)} key={el.id} ref={lastNodeRef} className="element-grid-div">
+                    return <Link to={String(el.id)} key={el.id} ref={lastNodeRef} className={styles["element-grid-div"]}>
                         <p>{el.type}</p>
                         <p>{el.name}</p>
                         <p>{el.dimension}</p>
                     </Link>
                 }
-                return <Link to={String(el.id)} key={el.id} className="element-grid-div">
+                return <Link to={String(el.id)} key={el.id} className={styles["element-grid-div"]}>
                     <p>{el.name}</p>
                     <p>{el.type}</p>
                     <p>{el.dimension}</p>

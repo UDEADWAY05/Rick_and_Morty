@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSearch } from "../../hooks/useSearch";
 import config from "../../config.json";
-import "./characters.scss"
+import styles from "./Characters.module.scss"
 
 export const CharactersPage = () => {
     const [page, setPage] = useState(1)    
@@ -33,21 +33,23 @@ export const CharactersPage = () => {
 
     }, [loading, hasMore])
 
-    return (<div className="gridPage-div">
-        <h1 className="title">Персонажи</h1>
-        <div className="grid-div">
+    return (<div className={styles["gridPage-div"]}>
+        <h1 className={styles["title"]}>Персонажи</h1>
+        <div className={styles["grid-div"]}>
             {element && element.map((el, index) => {
                 if (element.length === index + 1) {
-                    return <Link to={String(el.id)} key={el.id} ref={lastNodeRef} className="element-grid-div">
-                        <img alt={el.name} className="characters-img" src={el.image}></img>
+                    return <Link to={String(el.id)} key={el.id} ref={lastNodeRef} className={styles["element-grid-div"]}>
+                        <img alt={el.name} className={styles["characters-img"]} src={el.image}></img>
                         <p>{el.name}</p>
                         <p>{el.species}</p>
                     </Link>
                 }
-                return <Link to={String(el.id)} key={el.id} className="element-grid-div">
-                    <img alt={el.name} className="characters-img" src={el.image}></img>
-                    <h3>{el.name}</h3>
-                    <p>{el.species}</p>
+                return <Link to={String(el.id)} key={el.id} className={styles["characters-grid-div"]}>
+                    <img alt={el.name} className={styles["characters-img"]} src={el.image}></img>
+                    <div className={styles["characters-about"]}>
+                        <h3 className={styles["characters-about-title"]}>{el.name}</h3>
+                        <p className={styles["characters-about-subtitle"]}>{el.species}</p>
+                    </div>
                 </Link>
             })}
         </div>

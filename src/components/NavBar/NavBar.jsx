@@ -6,13 +6,13 @@ import logOutIcon from "../../assets/img/logOut-icon.svg"
 import { useNavigate } from "react-router-dom"
 import close from "../../assets/img/close.svg"
 import menu from "../../assets/img/menu.svg"
-import "./navBar.scss"
+import styles from "./NavBar.module.scss"
 
 export const NavBar = () => {
     const { user, signOut } = useAuth()
     const [toggle, setToggle] = useState(false)
-    const activeLink = "nav-list-link nav-list-link--active"
-    const normalLink = "nav-list-link"
+    const activeLink = styles["nav-list-link--active"]
+    const normalLink = styles["nav-list-link"]
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -25,45 +25,47 @@ export const NavBar = () => {
         }
     }
 
-    return (<div className="NavBar">
+    return (<div className={styles["NavBar"]}>
             
-        <NavLink to="/" className="link NavBar-left" >
-            <img alt="Сдесь должен быть Рик" src={rick} className="rick-img" />
-            <h1>Rick and Morty</h1>
+        <NavLink to="/" className={styles["NavBar-left"]} >
+            <img alt="Сдесь должен быть Рик" src={rick} className={styles["rick-img"]} />
+            <h1 className={styles["link"]}>Rick and Morty</h1>
         </NavLink>
-        <div className="NavBar-right">
-            <div className="NavBar-right-big">
+        <div className={styles["NavBar-right"]}>
+            <div className={styles["NavBar-right-big"]}>
                 <NavLink to="/episodes" className={({ isActive }) => (isActive ? activeLink : normalLink)}>Эпизоды</NavLink>
                 <NavLink to="/locations" className={({ isActive }) => (isActive ? activeLink : normalLink)}>Локации</NavLink>
                 <NavLink to="/characters" className={({ isActive }) => (isActive ? activeLink : normalLink)}>Персонажи</NavLink>
                 {user !== null
-                    ? <div className="nav-list-login">
-                        <h2 className="user-title">{user.login}</h2>
-                        <img className="NavBar-Icon" alt="выход" onClick={handleClick} src={logOutIcon}></img>
+                    ? <div className={styles["nav-list-login"]}>
+                        <h2 className={styles["user-title"]}>{user.login}</h2>
+                        <img className={styles["NavBar-icon"]} alt="выход" onClick={handleClick} src={logOutIcon}></img>
                     </div>
-                    : <NavLink to="/login" className={({ isActive }) => (isActive ? activeLink : normalLink)}><h2 className="user-title-link">Войти</h2></NavLink>
+                    : <NavLink to="/login" className={({ isActive }) => (isActive ? activeLink : normalLink)}><h2 className={styles["user-title-link"]}>Войти</h2></NavLink>
                 }
             </div>
-            <div className="NavBar-right-small">
+            <div className={styles["NavBar-right-small"]}>
                 <img
                     src={toggle ? close : menu}
                     alt='menu'
-                    className="menu-img"
+                    className={styles["menu-img"]}
                     onClick={() => setToggle(!toggle)}
                 />
 
-                <div className={`menu-selection-${!toggle ? 'hidden' : 'flex'}`}>
+                <div className={!toggle ? styles[`menu-selection-hidden`] : styles[`menu-selection-flex`]}>
                     <ul className='menu-selection-list'>
-                        <NavLink to="/episodes" className={normalLink} onClick={() => setToggle(prevState => !prevState)}>Эпизоды</NavLink>
-                        <NavLink to="/locations" className={normalLink} onClick={() => setToggle(prevState => !prevState)}>Локации</NavLink>
-                        <NavLink to="/characters" className={normalLink} onClick={() => setToggle(prevState => !prevState)}>Персонажи</NavLink>
-                        {user !== null
-                            ? <h2 className="user-title" onClick={() => {
-                                handleClick()
-                                setToggle(prevState => !prevState)
-                            }} >Выйти</h2>
-                            : <NavLink to="/login" className={normalLink} onClick={() => setToggle(prevState => !prevState)}><h2 className="user-title-link">Войти</h2></NavLink>
-                        }
+                        <NavLink to="/episodes" className={styles["menu-selection-link"]} onClick={() => setToggle(prevState => !prevState)}>Эпизоды</NavLink>
+                        <NavLink to="/locations" className={styles["menu-selection-link"]} onClick={() => setToggle(prevState => !prevState)}>Локации</NavLink>
+                        <NavLink to="/characters" className={styles["menu-selection-link"]} onClick={() => setToggle(prevState => !prevState)}>Персонажи</NavLink>
+                        <div className={styles["menu-selection-link"]}>
+                            {user !== null
+                                ? <h2 className={styles["user-title-link"]} onClick={() => {
+                                    handleClick()
+                                    setToggle(prevState => !prevState)
+                                }} >Выйти</h2>
+                                : <NavLink to="/login" className={styles["user-title"]} onClick={() => setToggle(prevState => !prevState)}><h2 className={styles["user-title-link"]}>Войти</h2></NavLink>
+                            }
+                        </div>
                     </ul>
                 </div>
             </div>

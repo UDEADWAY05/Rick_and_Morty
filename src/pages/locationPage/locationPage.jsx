@@ -3,7 +3,7 @@ import { useParams, Navigate } from "react-router-dom"
 import config from "../../config.json";
 import { useFetch } from "../../hooks/useFetch";
 import { Loader } from "../../components/Loader";
-import "./location.scss"
+import styles from "./Location.module.scss";
 
 export const LocationPage = () => {
     const { id } = useParams()
@@ -22,14 +22,14 @@ export const LocationPage = () => {
     }
 
     return (
-        <div className="cardPage">
-            <div className="card">
-                <div className="card-right">
-                    <h1>{data.name} </h1>
-                    <p className="card-describe">{"Name: " + data.name}</p>
-                    <p className="card-describe">{"Dismension: " + data.dimension}</p>
-                    <p className="card-describe">{"Type: " + data.type}</p>
-                    <p className="card-describe">{"Id: " + data.id}</p>
+        <div className={styles["cardPage"]}>
+            <div className={styles["card"]}>
+                <div className={styles["card-about"]}>
+                    <h1 className={styles["card-title"]}>{data.name} </h1>
+                    <p className={styles["card-describe"]}>{"Name: " + data.name}</p>
+                    <p className={styles["card-describe"]}>{"Dismension: " + data.dimension}</p>
+                    <p className={styles["card-describe"]}>{"Type: " + data.type}</p>
+                    <p className={styles["card-describe"]}>{"Id: " + data.id}</p>
                 </div>
             </div>
         </div>

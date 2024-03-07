@@ -3,7 +3,7 @@ import { useParams, Navigate, Link } from "react-router-dom"
 import config from "../../config.json";
 import { useFetch } from "../../hooks/useFetch";
 import { Loader } from "../../components/Loader";
-import "./character.scss"
+import styles from "./Character.module.scss"
 
 
 export const CharacterPage = () => {
@@ -23,28 +23,28 @@ export const CharacterPage = () => {
     }
 
     return (
-        <div className="cardPage">
+        <div className={styles["cardPage"]}>
             {error && <div key="error">error</div>}
-            <div className="card" key="card">
-                <div className="card-left">
-                    <img alt={data.name} src={data.image} className="characters-img" />
+            <div className={styles["card"]} key="card">
+                <div className={styles["card-left"]}>
+                    <img alt={data.name} src={data.image} className={styles["characters-img"]} />
                 </div>
-                <div className="card-right">
-                    <h1 key="title">{data.name} </h1>
-                    <p key="name" className="card-describe">{"Name: " + data.name}</p>
-                    <p key="species" className="card-describe">{"Species: " + data.species}</p>
-                    <p key="gender" className="card-describe">{"Gender: " + data.gender}</p>
-                    <p key="status" className="card-describe">{"Status: " + data.status}</p>
-                    <p key="id" className="card-describe">{"Id: " + data.id}</p>
+                <div className={styles["card-right"]}>
+                    <p key="title" className={styles["card-title"]}>{data.name} </p>
+                    <p key="name" className={styles["card-describe"]}>{"Name: " + data.name}</p>
+                    <p key="species" className={styles["card-describe"]}>{"Species: " + data.species}</p>
+                    <p key="gender" className={styles["card-describe"]}>{"Gender: " + data.gender}</p>
+                    <p key="status" className={styles["card-describe"]}>{"Status: " + data.status}</p>
+                    <p key="id" className={styles["card-describe"]}>{"Id: " + data.id}</p>
                 </div>
             </div>
-            <div className="card-second">
-                <h1 className="title">Эпизоды</h1>
-                <div className="card-second-grid">
+            <div className={styles["card-second"]}>
+                <h1 className={styles["title"]}>Эпизоды</h1>
+                <div className={styles["card-second-grid"]}>
                     {data.episode && data.episode.map((el, index) => {
-                        return <Link key={index} className="link card-mini" to={"/episodes/" + el.id}>
-                            <div>{el.name}</div>
-                            <div>{el.episode}</div>
+                        return <Link key={index} className={styles["card-mini"]} to={"/episodes/" + el.id}>
+                            <div className={styles["card-mini-title"]}>{el.name}</div>
+                            <div className={styles["card-mini-describe"]}>{el.episode}</div>
                         </Link>
                     })
                     }

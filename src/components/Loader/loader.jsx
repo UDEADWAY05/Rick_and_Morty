@@ -1,8 +1,9 @@
 import React from "react";
-import "./loader.scss"
+import styles from "./Loader.module.scss"
 
 export const Loader = () => {
-    return <div className="div-loading-circle">
-        <div className="circle"></div>
-    </div>;
+
+    return <div className={styles["div-loading-circle"]}>
+        <div className={styles["circle"]}></div>
+    </div>
 }

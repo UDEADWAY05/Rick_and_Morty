@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { InputSign } from "../../components/Input";
 import { useAuth } from "../../context/AuthProvider";
 import { useNavigate, useLocation } from "react-router-dom"
-import "./login.scss"
+import styles from "./Login.module.scss"
 
 
 export const LoginPage = () => {
@@ -49,8 +49,8 @@ export const LoginPage = () => {
     }
 
     return (
-        <div className="formDiv">
-            <h1 className="user-title">Вход</h1>
+        <div className={styles["formDiv"]}>
+            <h1 className={styles["formDiv-title"]}>Вход</h1>
             <form onSubmit={handleSubmit}>
                 <InputSign
                     label="Login"
@@ -70,7 +70,7 @@ export const LoginPage = () => {
                     onChange={handleChange}
                     required={true}
                 />
-                <button type="submit" disabled={!isValid} className="btn">Отправить</button>
+                <button type="submit" disabled={!isValid} className={styles["btn"]}>Отправить</button>
             </form>
         </div>
     );
