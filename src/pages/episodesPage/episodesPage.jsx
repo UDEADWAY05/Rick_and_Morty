@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { useSearch } from "../../hooks/useSearch";
 import config from "../../config.json";
 import styles from "./Episodes.module.scss";
+import { useLastNode } from "../../hooks/useLastNode";
+
+const INITIAL_PAGE = 1
 
 export const EpisodesPage = () => {
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(INITIAL_PAGE)
     const {
         loading,
         element,
@@ -13,25 +16,7 @@ export const EpisodesPage = () => {
         error
     } = useSearch("", page, config.episodes)
 
-    const observer = useRef();
-    
-    const lastNodeRef = useCallback((node) => {
-        if (loading) return;
-        if (observer.current) {
-            observer.current.disconnect()
-        }
-
-        observer.current = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && hasMore) {
-                setPage(prevState => prevState + 1)
-            }
-        })
-
-        if (node) {
-            observer.current.observe(node)
-        }
-
-    }, [loading, hasMore])
+    const lastNodeRef = useLastNode(loading, hasMore, setPage)
 
     return (<div className={styles["gridPage-div"]}>
         <h1 className={styles["title"]}>Эпизоды</h1>

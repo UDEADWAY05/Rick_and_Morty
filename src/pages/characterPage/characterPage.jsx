@@ -5,7 +5,6 @@ import { useFetch } from "../../hooks/useFetch";
 import { Loader } from "../../components/Loader";
 import styles from "./Character.module.scss"
 
-
 export const CharacterPage = () => {
     const { id } = useParams()
     const {
@@ -22,20 +21,22 @@ export const CharacterPage = () => {
         return <Loader />
     }
 
+    const { name, species, gender, status, image } = data;
+
     return (
         <div className={styles["cardPage"]}>
             {error && <div key="error">error</div>}
             <div className={styles["card"]} key="card">
                 <div className={styles["card-left"]}>
-                    <img alt={data.name} src={data.image} className={styles["characters-img"]} />
+                    <img alt={name} src={image} className={styles["characters-img"]} />
                 </div>
                 <div className={styles["card-right"]}>
-                    <p key="title" className={styles["card-title"]}>{data.name} </p>
-                    <p key="name" className={styles["card-describe"]}>{"Name: " + data.name}</p>
-                    <p key="species" className={styles["card-describe"]}>{"Species: " + data.species}</p>
-                    <p key="gender" className={styles["card-describe"]}>{"Gender: " + data.gender}</p>
-                    <p key="status" className={styles["card-describe"]}>{"Status: " + data.status}</p>
-                    <p key="id" className={styles["card-describe"]}>{"Id: " + data.id}</p>
+                    <p key="title" className={styles["card-title"]}>{name} </p>
+                    <p key="name" className={styles["card-describe"]}>{"Name: " + name}</p>
+                    <p key="species" className={styles["card-describe"]}>{"Species: " + species}</p>
+                    <p key="gender" className={styles["card-describe"]}>{"Gender: " + gender}</p>
+                    <p key="status" className={styles["card-describe"]}>{"Status: " + status}</p>
+                    <p key="id" className={styles["card-describe"]}>{"Id: " + id}</p>
                 </div>
             </div>
             <div className={styles["card-second"]}>

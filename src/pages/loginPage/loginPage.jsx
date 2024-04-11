@@ -33,7 +33,6 @@ export const LoginPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(state)
         signIn(state, () => {
             navigate(from, {
                 replace: true,

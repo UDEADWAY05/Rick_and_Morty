@@ -1,5 +1,5 @@
 .NavBar {
-    @apply flex max-w-full py-[10px] justify-between flex-row items-center bg-[#3c3c3c];
+    @apply flex max-w-full py-[10px] justify-between flex-row items-center bg-[#3c3c3c] border-[5px] border-[#3c3c3c];
     &-left {
         @apply items-center flex flex-row ml-5;
     }

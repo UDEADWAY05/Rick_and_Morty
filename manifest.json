@@ -1,7 +1,7 @@
 {
   "name": "Rick and Morty",
   "short_name": "RickAndMorty",
-  "theme_color": "#2d2d2d",
+  "theme_color": "#3c3c3c",
   "background_color": "#2d2d2d",
   "display": "standalone",
   "scope": "./",

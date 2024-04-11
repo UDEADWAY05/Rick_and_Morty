@@ -13,7 +13,7 @@ import { Loader } from "./components/Loader";
 const EpisodePage = lazy(() => import("./pages/episodePage"))
 const CharacterPage = lazy(() => import("./pages/characterPage"))
 const LocationPage = lazy(() => import("./pages/locationPage"))
-const NotFoundPage = lazy(() => import("./pages/notFoundPage"))
+const NotFoundPage = lazy(() => import("./pages/notFoundPage/notFoundPage"))
 const Login = lazy(() => import("./pages/loginPage"))
 
 function App() {

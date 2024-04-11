@@ -46,6 +46,7 @@ export const NavBar = () => {
             </div>
             <div className={styles["NavBar-right-small"]}>
                 <img
+                    typeof="image/svg+xml"
                     src={toggle ? close : menu}
                     alt='menu'
                     className={styles["menu-img"]}
