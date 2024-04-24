@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import styles from "./NotFound.module.scss"
 
-const NotFoundPage = () => {
+export const NotFoundPage = () => {
     const navigate = useNavigate()
     const [redirectTimer, setRedirectTimer] = useState(3)
  
@@ -23,5 +23,3 @@ const NotFoundPage = () => {
         <p className={styles["notFound-description"]}>Страница не найдена. Вы будете перенаправлены через {redirectTimer}...</p>
     </div>);
 };
-
-export default NotFoundPage;

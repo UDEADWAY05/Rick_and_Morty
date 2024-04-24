@@ -1,3 +1,6 @@
-import { CharacterPage } from "./characterPage";
+import React from "react";
 
-export default CharacterPage;
+const CharacterPage = React.lazy(() =>
+  import("./characterPage").then(module => ({ default: module.CharacterPage }))
+);
+export { CharacterPage };

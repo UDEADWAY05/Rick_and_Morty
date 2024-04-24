@@ -1,3 +1,6 @@
-import { LocationPage } from "./locationPage";
+import React from "react";
 
-export default LocationPage;
+const LocationPage = React.lazy(() =>
+  import("./locationPage").then(module => ({ default: module.LocationPage }))
+);
+export { LocationPage };

@@ -5,7 +5,7 @@ import svgrPlugin from 'vite-plugin-svgr';
 export default defineConfig({
     plugins: [
         react(),
-        svgrPlugin(),
-        
+        svgrPlugin(),  
     ],
+    base: "/Rick_and_Morty/"
 });

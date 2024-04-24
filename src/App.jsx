@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom"
 import { RouteWithErrorBoundary } from "./components/RouteWithErrorBoundary";
 import { MainPage } from "./pages/mainPage"
@@ -9,12 +9,12 @@ import { LocationsPage } from "./pages/locationsPage";
 import { AuthProvider } from "./context/AuthProvider";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { Loader } from "./components/Loader";
-
-const EpisodePage = lazy(() => import("./pages/episodePage"))
-const CharacterPage = lazy(() => import("./pages/characterPage"))
-const LocationPage = lazy(() => import("./pages/locationPage"))
-const NotFoundPage = lazy(() => import("./pages/notFoundPage/notFoundPage"))
-const Login = lazy(() => import("./pages/loginPage"))
+import { EpisodePage } from "./pages/episodePage"
+import { CharacterPage } from "./pages/characterPage";
+import { LocationPage } from "./pages/locationPage";
+import { NotFoundPage } from "./pages/notFoundPage";
+import { LoginPage } from "./pages/loginPage";
+import "../404.html"
 
 function App() {
   return (
@@ -78,7 +78,7 @@ function App() {
                     } />
                     <Route path="/login" element={
                         <Suspense fallback={<Loader />}>
-                            <Login/>
+                            <LoginPage/>
                         </Suspense>
                     } />
                 </Routes>
