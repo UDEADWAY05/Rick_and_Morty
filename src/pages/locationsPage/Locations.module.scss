@@ -1,0 +1,17 @@
+.title {
+    @apply font-medium;
+}
+
+.gridPage-div {
+    @apply my-[20px] mx-[30px] text-center;
+}
+
+.grid-div {
+    @apply max-w-[1000px] my-[30px] mx-auto grid justify-center 
+    grid-cols-1 gap-[20px] sm:grid-cols-2 md:grid-cols-3;
+}
+
+.element-grid-div {
+    @apply h-[150px] no-underline flex flex-col text-white m-0 py-[20px]
+    px-[15px] rounded-2xl bg-[#00000025] text-center justify-center text-base;
+}

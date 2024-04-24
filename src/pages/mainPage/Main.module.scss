@@ -1,0 +1,26 @@
+.main {
+    &-about {
+        @apply w-full flex items-center bg-[url("../../assets/img/back_4.png")] bg-cover bg-no-repeat bg-center;
+    }
+    &-cards {
+        @apply py-[29px];
+    }
+    &-card {
+        @apply max-w-7xl flex items-center mt-[30px] mx-[20px] p-7 flex-col bg-[#00000044] xg:mx-auto rounded-xl;
+        &-title {
+            @apply font-semibold;
+        }
+        &-subtitle {
+            @apply my-5 mx-3 text-justify sm:m-5
+        }
+    }
+}
+
+.logo {
+    &-div {
+        @apply flex flex-col w-[350px] my-[20vh] mx-auto p-[30px] items-center text-center bg-[#000000a7] rounded-xl;
+    }
+    &-img {
+        @apply max-w-[300px] w-[300px] mb-5;
+    }
+}

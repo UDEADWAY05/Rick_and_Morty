@@ -1,0 +1,14 @@
+.notFound {
+    &-div {
+        @apply m-auto flex flex-col text-center mx-[20px] items-center;
+    }
+
+    &-title {
+        @apply p-0 font-extrabold text-[35vw] md:text-[300px] leading-none animate-pulse;
+    }
+
+    &-description {
+        @apply max-w-[350px] m-0 p-[10px] text-xl bg-[#00000056] rounded-md text-[#ffffff61];
+    }
+
+}

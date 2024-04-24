@@ -1,0 +1,47 @@
+.cardPage {
+    @apply my-[30px] items-center mx-auto p-[15px];
+}
+
+.card {
+    @apply flex flex-col p-[10px] rounded-xl bg-[#00000025] sm:flex-row;
+
+    &-left {
+        @apply flex text-center;
+    }
+
+    &-right {
+        @apply my-[20px] mx-[30px];
+    }
+
+    &-title {
+        @apply my-3 font-bold text-2xl;
+    }
+
+    &-describe {
+        @apply font-normal text-base text-[#c3c3c3c7];
+    }
+
+    &-second {
+        @apply max-w-[820px] flex flex-col items-center mt-[30px] mx-auto 
+        bg-[#00000025] rounded-xl py-[20px] p-[10px];
+    }
+
+    &-second-grid {
+        @apply w-full max-w-[720px] my-[10px] grid p-[10px] grid-cols-1 gap-5 sm:grid-cols-2 md:p-[25px] md:grid-cols-3 ;
+    }
+
+    &-mini {
+        @apply h-[130px] bg-[#0808082a] py-[10px] px-[20px] rounded-lg sm:w-full md:w-[195px] ;
+        &-title {
+            @apply font-semibold text-lg;
+        }
+    
+        &-describe {
+            @apply font-normal text-base text-[#c3c3c3c7];
+        }
+    }
+}
+
+.characters-img {
+    @apply w-full m-[10px] rounded-xl sm:w-[200px] sm:h-[200px];
+}
