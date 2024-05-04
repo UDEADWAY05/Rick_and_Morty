@@ -1,4 +1,6 @@
-# Rick and Morty
+# Rick and Morty - this is my pet project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### he was created with TailwindCSS, Scss, TypeScript, and React!
+
+#### link: https://udeadway05.github.io/Rick_and_Morty/
 
